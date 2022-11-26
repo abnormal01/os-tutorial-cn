@@ -51,3 +51,18 @@ dw 0xaa55
 > 有些系统下，你可能需要运行 `qemu-system-x86_64 boot_sect_simple.bin` 如果出现 SDL 错误， 传递 --nographic 或者 --curses 参数给 qemu 程序。
 
 你将会看到一个窗口打印 "Booting from Hard Disk..." 然后就没有然后了。你最后一次看到无限循环还非常的兴奋是什么时候？ ;-)
+
+
+### qemu: could not load PC BIOS 'bios-256k.bin'  
+环境: centos7  
+架构: x86_64  
+复现: 执行 qemu-system-x86_64 boot_sect_simple.bin  
+解决: yum install qemu-kvm.x86_64  
+输出：
+```
+[root@localhost boot]# qemu-system-x86_64 boot_sect_simple.bin
+
+(process:12323): GLib-WARNING **: 22:21:56.731: gmem.c:489: custom memory allocation vtable not supported
+
+(qemu-system-x86_64:12323): Gtk-WARNING **: 22:21:56.746: cannot open display: 
+```
